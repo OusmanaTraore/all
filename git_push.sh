@@ -25,8 +25,9 @@ sleep 2
 
 echo -e "
 =================================================================================
-||||     Entrez votre branche sur laquelle vous pushez  <branch-projet>      ||||
-                     expemple : origin, master 
+||||     Entrez votre branche sur laquelle vous pushez  <branch-name>      ||||
+                     exemple1 : origin
+                     exemple2 : master 
 =================================================================================
 "
 read  branch_to_push
