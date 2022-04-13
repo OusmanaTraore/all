@@ -9,6 +9,12 @@ echo -e "
 read file_to_add
 git add $file_to_add
 
+if [ $# -eq 0 ]
+then
+do
+$file_to_add="--all"
+done
+
 git status
 sleep 2
 echo -e "
