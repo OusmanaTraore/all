@@ -18,7 +18,7 @@ echo -e "
 =================================================================================
 "
 read message_to_commit
-git commit $message_to_commit
+git commit -m $message_to_commit
 
 git status
 sleep 2
