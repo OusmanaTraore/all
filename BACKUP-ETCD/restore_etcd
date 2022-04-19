@@ -1,0 +1,2 @@
+#!/bin/bash
+ETCDCTL_API=3 etcdctl snapshot restore ${my_directory}

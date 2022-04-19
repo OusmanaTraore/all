@@ -1,9 +1,11 @@
 #!/bin/bash
-=========================
+#=========================
 
 
 
-=========================
+
+#=========================
+
 if [ "$EUID" -ne 0 ]
 then 
   echo "Please run as root"
@@ -29,6 +31,7 @@ apt-get install -y vim
 
 ### Installation de Docker
 echo " Installation de Docker >  "
+sudo swapoff -a && sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 apt-get install -y docker.io
 
 
@@ -78,7 +81,8 @@ cat /etc/hosts | grep k8smaster
 
 echo " < ======================================================= >"
 
-
+#echo " Désactivation de la swap> "
+#sudo swapoff -a && sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 
 ### Joindre le noeud au master
 echo " Joindre le noeud au master > "
@@ -87,9 +91,7 @@ kubeadm join --token $TOCKEN k8smaster:6443 --discovery-token-ca-cert-hash sha25
 echo -e "
 ============================================================================
 ||||            Fin d'installation sur le worker                        ||||
-
+||||   Vérifier la jointure du worker au master  depuis le master       ||||         
+============================================================================
 "
-# ||||   Vérifier la jointure du worker au master  depuis le master       ||||         
-# ============================================================================
-# "
 fi
