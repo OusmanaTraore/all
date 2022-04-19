@@ -11,16 +11,21 @@ echo -e "
             <<|>>>   NOMBRE DE QUESTIONS JUSQU'A PRESENT = $compteur_question_total  <<<|>>
             ==========================================================
 "
+
 while true
 do
 
+# read -p "
+# ===============================================================================
+# <<|>>> <<<|>>> <|>>> <<<|>>> <<|>>> <<<|>>> <|>>> <<<|>>> <<|>>> <<<|>>> <<<|>> 
+# <<|             Faites votre choix: QR pour question-réponse,               |>>   
+# <<|                   0 ou w pour terminer le programe !?                   |>>   
+# <<|>>> <<<|>>> <|>>> <<<|>>> <<|>>> <<<|>>> <|>>> <<<|>>> <<|>>> <<<|>>> <<<|>> 
+# ===============================================================================
+# |> "  choix
+
 read -p "
-===============================================================================
-<<|>>> <<<|>>> <|>>> <<<|>>> <<|>>> <<<|>>> <|>>> <<<|>>> <<|>>> <<<|>>> <<<|>> 
-<<|             Faites votre choix: QR pour question-réponse,               |>>   
-<<|                   0 ou w pour terminer le programe !?                   |>>   
-<<|>>> <<<|>>> <|>>> <<<|>>> <<|>>> <<<|>>> <|>>> <<<|>>> <<|>>> <<<|>>> <<<|>> 
-===============================================================================
+taper 's puis entrée'
 |> "  choix
 
 
@@ -29,7 +34,7 @@ read -p "
          echo "Fin du programme"
          exit;
          ;;
-      qr|QR|qR|Qr)
+         qr|QR|qR|Qr|s)
         if [ $compteur_question_total -gt $compteur_question ] &&  [ $compteur_question_total -gt $compteur_reponse ] ; 
         then
             compteur_question=$compteur_question_total

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+### <========================== FONCTIONS QUESTION-REPONSE    DEBUT =========================>
+###  fonction demandant question puis réponse
 quest_resp(){
     echo $QUESTIONS
     read  question
@@ -7,8 +9,13 @@ quest_resp(){
     read  reponse
     echo -e "
     $QUESTIONS 
-    |N-$compteur_question=> $question 
+    |QN-$compteur_question=> $question 
     $REPONSES
-    |N-$compteur_question=> $reponse
+    |RN-$compteur_question=> $reponse
     " >> question_reponse.txt
 }
+### <========================== FONCTIONS QUESTION-REPONSE  FIN =========================>
+###
+### <========================== FONCTIONS Mode Serie    DEBUT =========================>
+
+### <========================== FONCTIONS Mode Serie    FIN =========================>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+/* Container for flexboxes */
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Style the navigation menu */
+nav {
+  -webkit-flex: 0.75;
+  -ms-flex: 0.75;
+  flex: 0.65;
+  background: rgb(196, 24, 24);
+  padding: 10px;
+  width: 200px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+.circular--square {position: relative;
+     width: 130px; height: 130px; 
+     overflow: hidden; 
+     border-radius: 50%;
+     margin-left: 10%;
+     margin-right: auto;
+     margin-top: 15%;
+
+
+}
+/* Style the content */
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  background-color: white;
+  padding: 10px;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- <header>
+  <h2>Cities</h2>
+</header> -->
+
+<section >
+  <nav >
+    <img  class=circular--square src="photo.jpeg" alt="" srcset="">
+    <br>
+    <p style="text-align: center;color: #fff; font-size: larger;">
+    Mariame Traore</p>
+    <p style="color: #fff;">
+        <!-- &#x1F4E7;  -->
+        mariamet305@gmail.com <br>
+        <!-- &#x1F4DE;   -->
+        0636172889 <br>
+        <!-- &#x1F4CD; -->
+        92000 Nanterre
+    </p>
+    <h1 style="color: #fff; ">Compétences</h1>
+    <ul style="color: #fff; ">
+        <li>Autonomie &#9733;&#9733;&#9733;&#9733;&#9733;</li>  	
+        <li>Ponctuelle &#9733;&#9733;&#9733;&#9733;&#9733;</li>
+        <li>Méthodique &#9733;&#9733;&#9733;&#9733;</li>
+        <li>Sérieux &#9733;&#9733;&#9733;&#9733;</li>
+        <li>Organiser &#9733;&#9733;&#9733;</li>
+        <li>Prise d'initiative &#9733;&#9733;&#9733;&#9733;</li>
+        <li>Gestion du timing &#9733;&#9733;&#9733;&#9733;</li>
+        <li>Travail en équipe &#9733;&#9733;&#9733;&#9733;</li>
+        <li>Être à l' écoute des autres et des
+            consignes &#9733;&#9733;&#9733;&#9733;</li>
+        <li> Aime relever les défis &#9733;&#9733;&#9733;</li>
+    </ul>
+   
+    <h1 style="color: #fff;"> Langues</h1>
+    <ul style="color: #fff;">
+        <li>Française : Courant</li>
+        <li>Africain : Courant</li>
+        <li>Arabe  : Parlé</li>
+    </ul>
+    
+
+<h1 style="color: #fff;">Activités extra-professionnelles</h1>
+<ul style="color: #fff;">
+    <li>* Restauration</li>
+    <li>* Aide ménagère à domicile</li>
+</ul>
+
+
+
+  </nav>
+  
+  <article>
+
+      
+      <!-- <hr style=" float:left; margin-right:20%"> -->
+      <hr style=" margin-left: 20%; margin-right: 20%;" >
+      <h1 style="text-align: center; font-size: larger; ">Experiences</h1>
+      
+      
+      <div>
+        <h2 >Employée polyvalente restauration rapide</h2>    <p style="color: red;float: right;">Mars 2020 - Février 2022</p> 
+
+        <h3 style="color: red; text-align: left;">Burger king, Nanterre Université </h3>
+    </div>
+    
+    <div>
+
+    Équipière polyvalente
+        <ul>
+            <li>Responsable du comptoir, accueil clientèle, gestion d'encaissement, vérification
+                des commandes sur place, emporter, livraison, préparer les boissons, désert repas client.</li>
+            <li>Responsable cuisine, montage de la cuisine, approvisionnement de la cuisine et
+                comptoir, préparation des sandwichs en respectant les normes HACCP d' hygiène
+                et sécurité.</li>
+                <li>
+                En stock hygiène sécurité, contrôle et rotation des DLC.
+
+            </li>
+            <li>
+                En prép, couper les oigions, tomates,etc... responsable de salle respect de l'hygiène,
+                Satisfaction client.
+            </li>
+            <li>
+                Réalisation de l'inventaire
+            </li>
+        </ul>
+        
+        
+    
+        
+        2012 à 2019 : Restauration, Travail domestiquea l'étranger (Mauritanie)
+        <ul>
+            <li>Servante, satisfaction client, débarassage des tables, préparation des tables, des
+                salles en respectant les consignes hygiène et sécurité. Présentation des déserts.</li>
+            <li> Domestiques: soins des personnes âgées, cuisine, lave linge, balayer, faire la
+                vaisselle.</li>
+        </ul>
+        
+
+    </div>
+<div>
+
+    2011 à 2012 : Restauration , Travail domestique
+    Aide cuisinière , coupe légumes , sandwich , désert , plonge
+    Responsable salle , hygiène .
+</div>
+<div>
+
+    1995 , 2012 : domestiques en famille
+</div>
+<br>
+<hr style=" margin-left: 20%; margin-right: 20%;" >
+<h1 style="text-align: center; font-size: larger; ">Formations</h1> 
+<div>
+    <h2 >Nettoyage de cabine d'avion</h2>    <p style="color: red;float: right;">4 au 13 Avril2022</p> 
+
+    <h3 style="color: red; text-align: left;">Prisma Formations</h3>
+
+<h1> 
+Certificat de réalisation de l’action de formation</h1>
+<ul>
+    <li>Prépare et organiser les interventions dans les délais impartis</li>
+    <li>Respecter et faire respecter les règles d’hygiène de sécurité et de suretè aéroportuaire</li>
+    <li>Appliquer les procédures en fonction du cahier des charges des clients</li>
+    <li>Réaliser les prestations de chargement et déchargement des approvisionnement de bord relatfis à l’arment cabine</li>
+    <li>Réaliser les opérations de nettoyage et maintien de son propre matériel de travail</li>
+    <li>Relever les défaut et dysfonctionnement et les signaler a ses collègues , sa hiérarchie et au personnel navigant</li>
+</ul>
+
+
+<h1>Procédures</h1>
+
+<ul>
+
+    
+    <li>Procédure de nettoyage cabine ,cockpit</li>
+    <li>Connaissance des produits d’entertient</li>
+    <li>SGS-FH</li>
+    <li>Gestes et posture</li> 
+    <li>Sécurité en piste</li>
+    <li>Modules 11-2-6-2 , 11-2-3-10, 11-2-3-6</li>
+</ul>
+</div>
+<div>
+    <h1 > Préparation Opérationnelle à l'emploi Individuelle</h1>    <p style="color: red;float: right;">Février 2020 - Mars 2020</p> 
+    
+    <h3 style="color: red; text-align: left;">Argenteuil </h3>
+</div>
+<div>
+
+    <h1>
+        En informatique ( traitement de texte sur Word)  </h1>      <p style="color: red;float: right;"> Avril 2010 - Août 2011 </p> 
+        
+    
+        <h3 style="color: red; text-align: left;"> A l'étranger ( Mauritanie )</h3>
+        
+</div>
+
+<h1>
+    Mon parcours d'études  </h1>                          <p style="color: red;float: right;">  Septembre 1993 - Juillet 1995 </p>       
+    
+    <h3 style="color: red; text-align: left;">Collège Georges Pompidou</h3>
+
+
+<h1>
+    Mon parcours d'études     </h1>                           <p style="color: red;float: right;"> Septembre 1988 - Juillet 1993</p>    
+   
+    <h3 style="color: red; text-align: left;"> École Primaire , Pierre de Coubertin</h3>
+
+
+
+  </article>
+
+</section>
+<!-- 
+<footer>
+  <p>Footer</p>
+</footer> -->
+
+</body>
+</html>
+

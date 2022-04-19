@@ -1,5 +1,5 @@
 #!/bin/bash
 
-compteur_question_total=0
+compteur_question_total=4
 
 

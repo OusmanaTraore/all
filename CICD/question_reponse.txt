@@ -1,0 +1,26 @@
+
+    |> QUESTION N-1 
+    |QN-1=> Lancement d'un container avec une image nginx 
+    |> REPONSE  N-1
+    |RN-1=> kubectl run my-nginx --image=nginx
+    
+
+    |> QUESTION N-2 
+    |N-2=> Exposition du déployment à l'intérieur du cluster 
+    |> REPONSE  N-2
+    |N-2=> kubectl expose deployment my-nginx --port 80
+    
+
+    
+
+    |> QUESTION N-3 
+    |QN-3=> Exposition de port pour le pod 
+    |> REPONSE  N-3
+    |RN-3=> kubectl expose pod http --external-ip="10.0.0.20" --port=8000 --target-port=80
+    
+
+    |> QUESTION N-4 
+    |QN-4=> Création d'un déploiement puis l'exposer 
+    |> REPONSE  N-4
+    |RN-4=> kubectl run httpexposed --image=katacoda/docker-http-server:latest --replicas=1 --port=80 --hostport=8001
+    
