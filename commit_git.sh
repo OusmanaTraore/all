@@ -75,6 +75,10 @@ then
 	echo -e "##-7-##   Push OK...     ##-7-## "
 	echo "============= FIN DU PUSH , FIN DU PROGRAMME ==================="
 else
-	echo -e " Revérifiez votre branche "
+	echo -e " 
+	Revérifiez votre branche,
+	puis relancez le script
+	 "
+
 fi
 sleep 3

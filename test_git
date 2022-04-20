@@ -1,0 +1,20 @@
+total 41
+drwxr-xr-x 1 dev_yous 197121    0 avr.  20 22:19 ./
+drwxr-xr-x 1 dev_yous 197121    0 avr.  20 21:46 ../
+drwxr-xr-x 1 dev_yous 197121    0 avr.  20 22:05 .git/
+drwxr-xr-x 1 dev_yous 197121    0 avr.  20 21:46 .vagrant/
+drwxr-xr-x 1 dev_yous 197121    0 avr.  20 21:46 ARGOCD/
+drwxr-xr-x 1 dev_yous 197121    0 avr.  20 21:46 AWS_cli/
+drwxr-xr-x 1 dev_yous 197121    0 avr.  20 21:46 BACKUP_VELERO/
+drwxr-xr-x 1 dev_yous 197121    0 avr.  20 21:46 BACKUP-ETCD/
+drwxr-xr-x 1 dev_yous 197121    0 avr.  20 21:46 CICD/
+drwxr-xr-x 1 dev_yous 197121    0 avr.  20 21:46 CLUSTER_CALICO_WITH_VAGRANT/
+-rwxr-xr-x 1 dev_yous 197121 1868 avr.  20 22:05 commit_git.sh*
+-rwxr-xr-x 1 dev_yous 197121 1206 avr.  20 21:46 git_push.sh*
+drwxr-xr-x 1 dev_yous 197121    0 avr.  20 21:46 HTML/
+drwxr-xr-x 1 dev_yous 197121    0 avr.  20 21:46 ISTIO/
+drwxr-xr-x 1 dev_yous 197121    0 avr.  20 21:46 KUBERNETES/
+drwxr-xr-x 1 dev_yous 197121    0 avr.  20 21:46 PROJET/
+-rw-r--r-- 1 dev_yous 197121  116 avr.  20 21:46 README.md
+-rw-r--r-- 1 dev_yous 197121    0 avr.  20 22:19 test_git
+-rw-r--r-- 1 dev_yous 197121 1164 avr.  20 21:46 Vagrantfile
