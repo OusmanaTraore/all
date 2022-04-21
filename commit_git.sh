@@ -60,10 +60,35 @@ echo "==================================="
 echo""
 echo "==================================="
 echo -e "##-6-## Push des fichiers vers le repos distant"
-
-read -p "Veuillez entrez votre remote : " remote_push
+echo -e "
+Veuillez entrez votre remote :
+===> remote défaut 'origin ', tapez entrée pour confirmer : 
+===> sinon entrez le nom de votre remote :
+"
+read -p "|==> remote  : " remote_push
 echo -e "================================== "
+echo -e "
+Veuillez entrez votre branche :
+===> branche défaut 'master ', tapez entrée pour confirmer: 
+===> sinon entrez le nom de votre branche :
+"
 read -p "Veuillez entrez votre branche pour le push: " branche_push
+
+if [ $remote =="" ] 
+then
+	remote="origin" 
+	echo "|=> remote=${remote}"
+else
+	echo "|=> remote=${remote}"
+fi
+
+if [ $branche_push =="" ] 
+then
+	remote="master" 
+	echo "|=> branch=${branche_push}"
+else
+	echo "|=> branch=${branche_push}"
+fi
 git push $remote_push $branche_push
 echo "==================================="
 
