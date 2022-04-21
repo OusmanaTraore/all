@@ -23,18 +23,19 @@ https://github.com/brentley/ecsdemo-nodejs.git
 
 CONTEXT_NAME=`kubectl config view -o jsonpath='{.current-context}'`
 argocd cluster add $CONTEXT_NAME
-GITHUB_USERNAME="OusmanaTraore"
-MY_APP="my_app"
-MY_NAMESPACE="argo_project"
-MY_REPO=""
+MY_GITHUB_USERNAME="OusmanaTraore"
+MY_APP="my-app"
+MY_NAMESPACE="argo-project"
+MY_REPO="https://github.com/OusmanaTraore/all.git"
+MY_PATH="PROJET/ARGO/"
 
 kubectl create namespace ${MY_NAMESPACE}
-argocd app create ${MY_APP} --repo https://github.com/${GITHUB_USERNAME}/${MY_REPO} --path kubernetes --dest-server https://kubernetes.default.svc --dest-namespace ${MY_NAMESPACE}
+argocd app create ${MY_APP} --repo  ${MY_REPO} --path ${MY_PATH}  --dest-server https://kubernetes.default.svc --dest-namespace ${MY_NAMESPACE}
 
-argocd app get ecsdemo-nodejs
+argocd app get ${MY_APP}
 
 
-argocd app sync ecsdemo-nodejs
+argocd app sync ${MY_APP}
 
 apiVersion: apps/v1
 kind: Deployment
