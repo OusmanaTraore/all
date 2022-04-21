@@ -34,7 +34,6 @@ argocd app create ${MY_APP} --repo  ${MY_REPO} --path ${MY_PATH}  --dest-server 
 
 argocd app get ${MY_APP}
 
-
 argocd app sync ${MY_APP}
 
 apiVersion: apps/v1
