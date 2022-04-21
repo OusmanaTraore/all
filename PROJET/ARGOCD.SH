@@ -36,43 +36,15 @@ argocd app get ${MY_APP}
 
 argocd app sync ${MY_APP}
 
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: ecsdemo-nodejs
-  labels:
-    app: ecsdemo-nodejs
-  namespace: default
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: ecsdemo-nodejs
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
-  template:
-    metadata:
-      labels:
-        app: ecsdemo-nodejs
-    spec:
-      containers:
-      - image: brentley/ecsdemo-nodejs:latest
-        imagePullPolicy: Always
-        name: ecsdemo-nodejs
-        ports:
-        - containerPort: 3000
-          protocol: TCP
+
 
 echo $ARGOCD_SERVER
 
 
-argocd app delete ecsdemo-nodejs -y
-watch argocd app get ecsdemo-nodejs
+# argocd app delete ecsdemo-nodejs -y
+# watch argocd app get ecsdemo-nodejs
 
-FATA[0000] rpc error: code = NotFound desc = applications.argoproj.io "ecsdemo-nodejs" not found 
-kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.0.4/manifests/install.yaml
 
-kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.0.4/manifests/install.yaml
+# kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.0.4/manifests/install.yaml
+
+# kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.0.4/manifests/install.yaml
