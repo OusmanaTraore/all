@@ -23,6 +23,11 @@ echo "==================================="
 echo""
 echo "==================================="
 echo -e "##-2-## Ajout des fichiers"
+echo -e "
+Veuillez indexer vos fichiers :
+===> valeur par défaut : git add --all , tapez entrée pour confirmer : 
+===> sinon entrez les fichiers :
+"
 read -p "Veuillez ajouter vos fichier: " fichier
 if [ $fichier =="--all" ] || [ $fichier =="." ] || [ $fichier==" " ]
 then
@@ -84,7 +89,7 @@ fi
 
 if [ $branche_push =="" ] 
 then
-	remote="master" 
+	branch="master" 
 	echo "|=> branch=${branche_push}"
 else
 	echo "|=> branch=${branche_push}"
