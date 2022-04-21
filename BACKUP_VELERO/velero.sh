@@ -3,8 +3,8 @@
 
 
 ## 1- AWS configuration (local machine to cluster)
-export REGION="us-west-2"
-export CLUSTERNAME="ousmana-cluster-istio"
+export REGION="eu-north-1"
+export CLUSTERNAME="ousmana-project-eks2"
 aws sts get-caller-identity
 aws eks --region ${REGION} update-kubeconfig --name ${CLUSTERNAME}
 kubectl get pods --kubeconfig ./.kube/config

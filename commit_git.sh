@@ -24,13 +24,13 @@ echo""
 echo "==================================="
 echo -e "##-2-## Ajout des fichiers"
 read -p "Veuillez ajouter vos fichier: " fichier
-if [ $fichier!="--all" ] || [ $fichier!="." ]
+if [ $fichier =="--all" ] || [ $fichier =="." ] || [ $fichier==" " ]
 then
-	echo "Ajout de vos fichiers : $fichier"
-	git add $fichier
-else
 	echo "Ajout de tous les fichiers"
 	git add --all 
+else
+	echo "Ajout de vos fichiers : $fichier"
+	git add $fichier
 fi
 echo "==================================="
 
