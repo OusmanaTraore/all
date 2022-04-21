@@ -4,7 +4,7 @@ metadata:
   name: ecsdemo-crystal
   labels:
     app: ecsdemo-crystal
-  namespace: default
+  namespace: argo-project
 spec:
   replicas: 2
   selector:
@@ -46,7 +46,7 @@ metadata:
   name: ecsdemo-frontend
   labels:
     app: ecsdemo-frontend
-  namespace: default
+  namespace: argo-project
 spec:
   replicas: 4
   selector:
@@ -94,7 +94,7 @@ metadata:
   name: ecsdemo-nodejs
   labels:
     app: ecsdemo-nodejs
-  namespace: default
+  namespace: argo-project
 spec:
   replicas: 3
   selector:
