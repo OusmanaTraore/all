@@ -51,7 +51,7 @@ echo""
 echo "==================================="
 echo -e "##-4-## Commit des fichiers"
 read -p "entrez votre message de commit: " message
-git commit -m "$message"
+git commit -m \"$message\"
 echo "==================================="
 
 #===
@@ -77,7 +77,7 @@ Veuillez entrez votre branche :
 ===> branche défaut 'master ', tapez entrée pour confirmer: 
 ===> sinon entrez le nom de votre branche :
 "
-read -p "Veuillez entrez votre branche pour le push: " branche_push
+read -p "Veuillez entrez votre branche pour le push: " branche
 
 if [ $remote =="" ] 
 then
@@ -87,20 +87,20 @@ else
 	echo "|=> remote=${remote}"
 fi
 
-if [ $branche_push =="" ] 
+if [ $branche =="" ] 
 then
-	branch="master" 
-	echo "|=> branch=${branche_push}"
+    branche="master" 
+	echo "|=> branch=${branche}"
 else
-	echo "|=> branch=${branche_push}"
+	echo "|=> branch=${branche}"
 fi
-git push $remote_push $branche_push
+git push $remote_push $branche
 echo "==================================="
 
 #===
 echo""
 echo "==================================="
-if [ $branche_push  ]
+if [ $branche  ]
 then
 	echo -e "##-7-##   Push OK...     ##-7-## "
 	echo "============= FIN DU PUSH , FIN DU PROGRAMME ==================="
