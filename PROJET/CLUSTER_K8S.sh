@@ -8,21 +8,24 @@ kubectl apply -f https://raw.githubusercontent.com/fc4it-k8s/ecsdemo-nodejs/mast
 
 ## Exposez le service en tant que node port et visualiser l’output
 
-kubectl expose deployment/ecsdemo-nodejs --type="NodePort" --name=ecsdemo-nodejs
+kubectl get svc
+kubectl edit svc ecsdemo-nodejs
 
-kubectl expose deployment/ecsdemo-nodejs --type="NodePort" --port 8080
+# kubectl expose deployment/ecsdemo-nodejs --type="NodePort" --name=ecsdemo-nodejs
 
-kubectl describe services/ecsdemo-nodejs
+# kubectl expose deployment/ecsdemo-nodejs --type="NodePort" --port 8080
+
+# kubectl describe services/ecsdemo-nodejs
 
 export NODE_PORT=$(kubectl get services/ecsdemo-nodejs -o go-template='{{(index .spec.ports 0).nodePort}}')
 
-echo NODE_PORT=$NODE_PORT
-NODE_PORT=31373
-SERVICE_NODE_IP="13.51.146.164"
+echo $NODE_PORT
+SERVICE_NODE_IP="16.170.239.57"
 
 curl $SERVICE_NODE_IP:$NODE_PORT
 
 ### Mettre à l'echelle le déploiment ( passer de 1 à 3 réplicas)
+kubectl edit deployment/ecsdemo-nodejs
 
 ### Mettez à jour la version de Kubernetes vers la version 1.21
 kubectl version
@@ -41,12 +44,14 @@ Verification des version disponibles
 # it should look like 1.20.x-00, where x is the latest patch
 "
 sudo apt-cache madison kubeadm
+
 read -p " Entrez la version voulue pour l'upgrade" version
 
-sudo apt-mark unhold kubeadm 
-sudo  apt-get update
+sudo apt-mark unhold kubeadm
+
 sudo  apt-get install -y kubeadm=$version 
 sudo  apt-mark hold kubeadm
+
 }
 
 #kubeadm | 1.20.15-00 | http://apt.kubernetes.io kubernetes-xenial/main amd64 Packages
@@ -54,10 +59,10 @@ sudo  apt-mark hold kubeadm
     
 ##
 
+kubeadm version
 sudo apt-mark unhold kubeadm && sudo  apt-get update && sudo  apt-get install -y kubeadm=1.20.15-00 && sudo  apt-mark hold kubeadm
 
 
-kubeadm version
 
 sudo  kubeadm upgrade plan
 
@@ -107,12 +112,56 @@ sudo systemctl restart kubelet
 kubectl uncordon ip-172-31-46-105
 kubectl get node
 
-############ DASHBOARD KUBERNETES
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended.yaml
+############  METRICS AND DASHBOARD KUBERNETES
+### METRICS
 
-kubectl apply -f kubernets-dashboard-adminuser.yaml
-kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token | base64decode}}" 1> my_tocken 
+git clone https://github.com/kubernetes-incubator/metrics-server.git
+cd metrics-server
+
+kubectl create -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.7/components.yaml
+kubectl -n kube-system get pods
+kubectl -n kube-system edit deployment metrics-server
+
+# ....
+#  spec:
+#  containers:
+#  - args:
+#  - --cert-dir=/tmp
+#  - --secure-port=4443
+#  - --kubelet-insecure-tls #<-- Add this line
+#  - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname #<--May be needed
+#  image: k8s.gcr.io/metrics-server/metrics-server:v0.3.7
+
+kubectl -n kube-system logs metrics-server-XXXX-XXXX
+sleep 120 ; kubectl top pod --all-namespaces
+kubectl top nodes
+
+curl --cert ./client.pem --key ./client-key.pem --cacert ./ca.pem https://k8smaster:6443/apis/metrics.k8s.io/v1beta1/nodes
+
+##### FIN METRICS =====>
+
+#### DASHBOARD
+
+kubectl create -f https://bit.ly/2OFQRMy
+kubectl get svc --all-namespaces
+kubectl -n kubernetes-dashboard edit svc kubernetes-dashboard
+
+# ....
+# selector:
+# k8s-app: kubernetes-dashboard
+# sessionAffinity: None
+# type: NodePort #<-- Edit this line
+# status:
+# loadBalancer: {}
+
+kubectl -n kubernetes-dashboard get svc kubernetes-dashboard
+
 
 kubectl create clusterrolebinding dashaccess --clusterrole=cluster-admin --serviceaccount=kubernetes-dashboard:kubernetes-dashboard
+kubectl -n kubernetes-dashboard describe secrets kubernetes-dashboard-token-<
+
+
 
 sendCommand(SecurityInterstitialCommandId.CMD_PROCEED)
+
+##### FIN DASHBOARD =====>
