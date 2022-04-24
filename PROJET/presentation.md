@@ -3,8 +3,6 @@
     * Déployez un cluster kubernetes 1.19
     * Déployez l’application de démos
     * Mettez à jour la version de Kubernetes vers la version 1.21
-    * Configurez le dashboard de Kubernetes.
-
 - 2 Migration vers EKS
     * Déploiement du cluster EKS
     * Mise à jour de votre cluster eks

@@ -5,12 +5,21 @@
 ```
     choco install awscli
 ```
+export REGION="eu-north-1"
+export CLUSTERNAME="ousmana-project-eks2"
+aws sts get-caller-identity
+aws eks --region ${REGION} update-kubeconfig --name ${CLUSTERNAME}
+kubectl get pods --kubeconfig ./.kube/config
+
+
 -[3]- EKSctl 
 
 ```
     choco install eksctl
 ```
-
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+eksctl version 
 -[4]- Kubectl-cli
 ```
    choco install kubernetes-cli 
@@ -25,14 +34,14 @@ eksctl create cluster --name projet-ousmana  --version 1.21 --region eu-north-1 
 ### Deploiement des microservices
 1- DEPLOY NODEJS BACKEND API
 
-kubectl apply -f nodejs_backend_deployment.yaml
-kubectl apply -f nodejs_service.yaml
+kubectl apply -f https://raw.githubusercontent.com/OusmanaTraore/all/master/PROJET/nodejs_backend_deployment.yaml
+kubectl apply -f https://raw.githubusercontent.com/OusmanaTraore/all/master/PROJET/nodejs_service.yaml
 
 
 2- DEPLOY CRYSTAL BACKEND API
 
-kubectl apply -f crystal_deployment.yaml
-kubectl apply -f crystal_service.yaml
+kubectl apply -f https://raw.githubusercontent.com/OusmanaTraore/all/master/PROJET/crystal_deployment.yaml
+kubectl apply -f https://raw.githubusercontent.com/OusmanaTraore/all/master/PROJET/crystal_service.yaml
 
 
 3- ENSURE THE ELB SERVICE ROLE EXISTS
@@ -40,9 +49,9 @@ kubectl apply -f crystal_service.yaml
 aws iam get-role --role-name "AWSServiceRoleForElasticLoadBalancing" || aws iam create-service-linked-role --aws-service-name "elasticloadbalancing.amazonaws.com"
 
 4- DEPLOY FRONTEND SERVICE
-kubectl apply -f  frontend_deployment.yaml
-kubectl apply -f  ingress.yaml
-kubectl apply -f  frontend_service.yaml
+kubectl apply -f  https://raw.githubusercontent.com/OusmanaTraore/all/master/PROJET/frontend_deployment.yaml
+kubectl apply -f  https://raw.githubusercontent.com/OusmanaTraore/all/master/PROJET/ingress.yaml
+kubectl apply -f  https://raw.githubusercontent.com/OusmanaTraore/all/master/PROJET/frontend_service.yaml
 
 5- FIND THE SERVICE ADDRESS
 
