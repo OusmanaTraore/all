@@ -37,7 +37,6 @@ argocd app get ${MY_APP}
 argocd app sync ${MY_APP}
 
 
-
 echo $ARGOCD_SERVER
 
 
