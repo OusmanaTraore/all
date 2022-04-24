@@ -43,9 +43,12 @@
         kubectl create clusterrolebinding dashaccess --clusterrole=cluster-admin --serviceaccount=kubernetes-dashboard:kubernetes-dashboard
         kubectl -n kubernetes-dashboard describe secrets kubernetes-dashboard-token-<XXXX-XXXX>
         ``` 
-        Accedez au dashboard depuis le navigateur internet puis inspecter le et entrer la commande suivante depuis la console
-        ![kubernetesDashboard](https://github.com/OusmanaTraore/all/tree/master/PROJET/images/login.png)
-        sendCommand(SecurityInterstitialCommandId.CMD_PROCEED)
+        Accedez au dashboard depuis le navigateur internet puis inspecter le et entrer la commande suivante depuis la console  
+
+        ![kubernetesDashboard](https://github.com/OusmanaTraore/all/tree/master/PROJET/images/login.png)  
+
+        sendCommand(SecurityInterstitialCommandId.CMD_PROCEED)  
+        
         ![kubernetesDashboard](https://github.com/OusmanaTraore/all/tree/master/PROJET/images/kubernetesDashboard.png)
         
 
