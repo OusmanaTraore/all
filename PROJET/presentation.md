@@ -13,15 +13,9 @@
     * ajouter prométhée Helm repo 
     * ajouter grafana Helm repo
     * Déployez Grafana
-<<<<<<< Updated upstream
       * Tableau de bord de la surveillance du cluster
       * Tableau de bord de surveillance des unités
         
-=======
-        ** Tableau de bord de la surveillance du cluster
-        ** Tableau de bord de surveillance des unités
-
->>>>>>> Stashed changes
 - 4 Déploiement continu avec ARGOCD
     * Installer argocd
     * Mettre à jour l’application
