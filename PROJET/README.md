@@ -45,11 +45,11 @@
         ``` 
         Accedez au dashboard depuis le navigateur internet puis inspecter le et entrer la commande suivante depuis la console  
 
-        ![kubernetesDashboard](login.png)  
+        ![kubernetesDashboard](images/login.png)  
 
         sendCommand(SecurityInterstitialCommandId.CMD_PROCEED)  
         
-        ![kubernetesDashboard](kubernetesDashboard.png)
+        ![kubernetesDashboard](images/kubernetesDashboard.png)
         
 
 
