@@ -11,18 +11,22 @@
 ### Partie 1: Installation d'un cluster  kubeadm  et déploiement d'application
 
 1. Déployer un cluster K8S et installer les microservices de demos
-    * Déployez un cluster kubernetes 1.19
-    L'installation de kubeadm à été réaliser à l'aide de script depuis l'url suivant:
+    * Dépliement d'un cluster kubernetes 1.19
+    L'installation de kubeadm à été réaliser à l'aide de script depuis l'url suivant:  
+
     [Installation d'un cluster k8s](https://github.com/OusmanaTraore/kubernetes/tree/master/kubernetes_fundamental/Installation_kubernetes%20_V2) 
+    
     * Déployez l’application de démos (Hello from nodejs)
     * Mise à jour de version de Kubernetes vers la version 1.21
         - elle se fait en deux étape:
         1. mise à jour depuis la version 1.19 vers la version 1.20
-        2.  mise à jour depuis la version 1.20 vers la version 1.21
+        2.  mise à jour depuis la version 1.20 vers la version 1.21  
+
         [Mise à jour de kubeadm](https://raw.githubusercontent.com/OusmanaTraore/all/master/PROJET/upgrade.sh) 
+
     * Configuration du dashboard de Kubernetes.
 
-    ```
+        ```
         kubectl create -f https://bit.ly/2OFQRMy
         kubectl get svc --all-namespaces
         kubectl -n kubernetes-dashboard edit svc kubernetes-dashboard
@@ -36,11 +40,15 @@
         # loadBalancer: {}
 
         kubectl -n kubernetes-dashboard get svc kubernetes-dashboard
-
-
         kubectl create clusterrolebinding dashaccess --clusterrole=cluster-admin --serviceaccount=kubernetes-dashboard:kubernetes-dashboard
         kubectl -n kubernetes-dashboard describe secrets kubernetes-dashboard-token-<XXXX-XXXX>
-    ``` 
+        ``` 
+        Accedez au dashboard depuis le navigateur internet puis inspecter le et entrer la commande suivante depuis la console
+        ![kubernetesDashboard](https://github.com/OusmanaTraore/all/tree/master/PROJET/images/login.png)
+        sendCommand(SecurityInterstitialCommandId.CMD_PROCEED)
+        ![kubernetesDashboard](https://github.com/OusmanaTraore/all/tree/master/PROJET/images/kubernetesDashboard.png)
+        
+
 
 ---
 2. Migration vers EKS
