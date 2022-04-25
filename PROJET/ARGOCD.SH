@@ -1,13 +1,12 @@
 #!/bin/bash
 
 
-
 kubectl create namespace argocd
 
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.0.4/manifests/install.yaml
 
 ### ARGO CD CLI
-curl --silent --location -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/download/v2.0.4/argocd-linux-amd64
+sudo curl --silent --location -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/download/v2.0.4/argocd-linux-amd64
 
 sudo chmod +x /usr/local/bin/argocd
 
@@ -24,8 +23,8 @@ https://github.com/brentley/ecsdemo-nodejs.git
 CONTEXT_NAME=`kubectl config view -o jsonpath='{.current-context}'`
 argocd cluster add $CONTEXT_NAME
 MY_GITHUB_USERNAME="OusmanaTraore"
-MY_APP="my-app"
-MY_NAMESPACE="argo-project"
+MY_APP="my-kubernetes-argo-app"
+MY_NAMESPACE="project-kubernetes"
 MY_REPO="https://github.com/OusmanaTraore/all.git"
 MY_PATH="PROJET/ARGO/"
 

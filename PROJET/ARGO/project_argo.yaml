@@ -4,9 +4,9 @@ metadata:
   name: ecsdemo-crystal
   labels:
     app: ecsdemo-crystal
-  namespace: argo-project
+  namespace: project-kubernetes
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: ecsdemo-crystal
@@ -46,9 +46,9 @@ metadata:
   name: ecsdemo-frontend
   labels:
     app: ecsdemo-frontend
-  namespace: argo-project
+  namespace: project-kubernetes
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       app: ecsdemo-frontend
@@ -71,9 +71,9 @@ spec:
           protocol: TCP
         env:
         - name: CRYSTAL_URL
-          value: "http://ecsdemo-crystal.argo-project.svc.cluster.local/crystal"
+          value: "http://ecsdemo-crystal.project-kubernetes.svc.cluster.local/crystal"
         - name: NODEJS_URL
-          value: "http://ecsdemo-nodejs.argo-project.svc.cluster.local/"
+          value: "http://ecsdemo-nodejs.project-kubernetes.svc.cluster.local/"
 ---
 apiVersion: v1
 kind: Service
@@ -94,9 +94,9 @@ metadata:
   name: ecsdemo-nodejs
   labels:
     app: ecsdemo-nodejs
-  namespace: argo-project
+  namespace: project-kubernetes
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app: ecsdemo-nodejs

@@ -87,9 +87,14 @@ Accéder au DASHBOARD GRAFANA en cliquant sur le lien suivant:
 [DASHBOARD GRAFANA KUBERNETES CLUSTER ](http://a41e9573df81e4d348922da2455df2da-696240626.eu-north-1.elb.amazonaws.com/d/IPrny1wnz/kubernetes-cluster-monitoring-via-prometheus?orgId=1&refresh=10s)
 
 
-[DASHBOARD GRAFANA KUBERNETES CLUSTER ](http://a41e9573df81e4d348922da2455df2da-696240626.eu-north-1.elb.amazonaws.com/d/4XuMd2Iiz/kubernetes-pod-monitoring?orgId=1)
+[DASHBOARD GRAFANA KUBERNETES PODS  ](http://a41e9573df81e4d348922da2455df2da-696240626.eu-north-1.elb.amazonaws.com/d/4XuMd2Iiz/kubernetes-pod-monitoring?orgId=1)
 
 ---
 4. Déploiement continu avec ARGOCD
+    Accéder au DASHBOARD ARGOCD en cliquant sur le lien suivant: 
+
+
+[ DASHBOARD ARGOCD ](https://a45c9719527624116a8ce4c4db40ad84-932098440.eu-north-1.elb.amazonaws.com/applications)
+
 ---
 5. CIS EKS BENCHMARK ASSESSMENT USING KUBE-BENCH
