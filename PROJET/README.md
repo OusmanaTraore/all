@@ -54,6 +54,7 @@
         ![kubernetesDashboard](images/kubernetesDashboard.png)
         
 ---
+### Partie 2: MIGRATION VERS EKS
 2. Migration vers EKS
     ```
         ## MISE A JOUR DE EKS
@@ -77,6 +78,7 @@
 
      [ecsdemo](http://afe24b534f2d64968b42a919df88b4de-1401280157.eu-north-1.elb.amazonaws.com) 
 ---
+### Partie 3: SURVEILLANCE 
 3. Surveillance avec PROMETHEUS et GRAFANA  
 
 Accéder au DASHBOARD GRAFANA en cliquant sur le lien suivant: 
@@ -91,6 +93,7 @@ Accéder au DASHBOARD GRAFANA en cliquant sur le lien suivant:
    [DASHBOARD GRAFANA KUBERNETES PODS  ](http://a41e9573df81e4d348922da2455df2da-696240626.eu-north-1.elb.amazonaws.com/d/4XuMd2Iiz/kubernetes-pod-monitoring?orgId=1)
 
 ---
+### Partie 4: DEPLOIEMENT CONTINU
 4. Déploiement continu avec ARGOCD  
 
 Accéder au DASHBOARD ARGOCD en cliquant sur le lien suivant: 
@@ -99,6 +102,7 @@ Accéder au DASHBOARD ARGOCD en cliquant sur le lien suivant:
    [ DASHBOARD ARGOCD ](https://a45c9719527624116a8ce4c4db40ad84-932098440.eu-north-1.elb.amazonaws.com/applications)
 
 ---
+### Partie 5: BENCHMARK DE SECURITE
 5. CIS EKS BENCHMARK ASSESSMENT USING KUBE-BENCH
 ```
     [INFO] 1 Control Plane Components
