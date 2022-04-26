@@ -63,7 +63,7 @@ export LOADBALANCER_PORT="30573"
 
 kubectl get deployments
 kubectl scale deployment ecsdemo-nodejs --replicas=3
-kubectl scale deployment ecsdemo-crystal --replicas=3
+kubectl scale deployment ecsdemo-crystal --replicas=10
 kubectl get deployments
 
 7- SCALE THE FRONTEND
