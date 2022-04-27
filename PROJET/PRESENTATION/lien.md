@@ -16,8 +16,20 @@
 5. [ ARGOCD/EMnObVTJnGOQTvTm](https://a45c9719527624116a8ce4c4db40ad84-932098440.eu-north-1.elb.amazonaws.com/loginreturn_url=https%3A%2F%2Fa45c9719527624116a8ce4c4db40ad84-932098440eu-north-1.elb.amazonaws.com%2Fapplications%2Fmy-kubernetes-argo-app) 
 
 
-    -- kubectl scale deployment ecsdemo-nodejs --replicas=10  
+```
+    kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 
-    -- kubectl scale deployment ecsdemo-crystal --replicas=10  
+export ARGOCD_SERVER=`kubectl get svc argocd-server -n argocd -o json | jq --raw-output '.status.loadBalancer.ingress[0].hostname'`
 
-    -- kubectl scale deployment ecsdemo-frontend --replicas=10  
+export ARGO_PWD=`kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`
+
+argocd login $ARGOCD_SERVER --username admin --password $ARGO_PWD --insecure
+
+```
+    MY_APP="my-kubernetes-argo-app"
+    argocd app get ${MY_APP}
+
+    ===> faire le commit
+
+    argocd app sync ${MY_APP}
+  

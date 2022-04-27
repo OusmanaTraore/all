@@ -6,7 +6,7 @@ metadata:
     app: ecsdemo-crystal
   namespace: project-kubernetes
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: ecsdemo-crystal
@@ -96,7 +96,7 @@ metadata:
     app: ecsdemo-nodejs
   namespace: project-kubernetes
 spec:
-  replicas: 5
+  replicas: 1
   selector:
     matchLabels:
       app: ecsdemo-nodejs
