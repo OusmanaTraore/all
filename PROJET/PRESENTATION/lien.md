@@ -4,11 +4,8 @@
 
 3. [ APPLICATION ECSDEMO ](http://afe24b534f2d64968b42a919df88b4de-1401280157.eu-north-1.elb.amazonaws.com/)
 
-    -- kubectl scale deployment ecsdemo-nodejs --replicas=5  
+  
 
-    -- kubectl scale deployment ecsdemo-crystal --replicas=5  
-
-    -- kubectl scale deployment ecsdemo-frontend --replicas=5  
 
 
 4. [DASHBOARD GRAFANA KUBERNETES CLUSTER ](http://a41e9573df81e4d348922da2455df2da-696240626.eu-north-1.elb.amazonaws.com/d/IPrny1wnz/kubernetes-cluster-monitoring-via-prometheus?orgId=1&refresh=10s)
