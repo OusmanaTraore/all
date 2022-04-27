@@ -84,8 +84,6 @@
 Accéder au DASHBOARD GRAFANA en cliquant sur le lien suivant: 
 
 
-   [ DASHBOARD GRAFANA ](http://a41e9573df81e4d348922da2455df2da-696240626.eu-north-1.elb.amazonaws.com/?orgId=1)
-
 
    [DASHBOARD GRAFANA KUBERNETES CLUSTER ](http://a41e9573df81e4d348922da2455df2da-696240626.eu-north-1.elb.amazonaws.com/d/IPrny1wnz/kubernetes-cluster-monitoring-via-prometheus?orgId=1&refresh=10s)
 
