@@ -1,7 +1,8 @@
 #!/bin/bash
 IP_ETH1=$(ip a | cut -d " " -f 6 | grep ^192 | cut -d "/" -f 1)
 echo "|||========================  Début installation  =============================|||"
-echo "L'adresse IP est $IP_ETH1"
+ 
+read -p "Entrez l'adresse IP de la machine:  $IP_ETH1"
 echo "|||=================  ETAPE 1/8  Désactivation de la swap   ==================|||"
 ### Désactiver la swap  et la rendre persistente
 echo " Désactivation de la swap  et la rendre persistente "
@@ -74,9 +75,12 @@ if [ $? -ne 0 ];
         sudo apt update 2>/dev/null
         echo ""
         echo "|||====   ETAPE 6/8  Installation de kubelet kubeadm kubectl kubernetes-cni  ===|||"
-        sudo apt install -y kubelet 2>/dev/null 
-        sudo apt install -y kubeadm 2>/dev/null
-        sudo apt install -y kubectl 2>/dev/null
+        # kubectl_version="1.19.1-00"
+        sudo apt-get install -y \
+        kubeadm=1.19.1-00 kubelet=1.19.1-00 kubectl=1.19.1-00
+        # sudo apt install -y kubelet=${kubectl_version} 2>/dev/null 
+        # sudo apt install -y kubeadm=${kubectl_version} 2>/dev/null
+        # sudo apt install -y kubectl=${kubectl_version} 2>/dev/null
         sudo apt install -y kubernetes-cni 2>/dev/null
         if [ $? -ne 0 ]; 
         then
@@ -114,7 +118,14 @@ if [ $? -ne 0 ];
             fi
         fi
    fi
+
 ###
+###  Installation de bash completion
+echo " Installation de bash completion > "
+sudo apt-get install bash-completion -y
+source <(kubectl completion bash)
+echo "source <(kubectl completion bash)" >> $HOME/.bashrc
+source ~/.bashrc
 echo "|||====   ETAPE 7/8  Configuration kubernetes  \"/etc/default/kubelet\"  ===|||"
 echo ""
 echo " Vérification du dossier  /etc/default/kubelet  == ok"

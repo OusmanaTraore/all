@@ -15,7 +15,7 @@
 IP_ETH1=$(ip a | cut -d " " -f 6 | grep ^192 | cut -d "/" -f 1)
 echo "|||========================  Début installation  =============================|||"
 echo "L'adresse IP est $IP_ETH1"     
-
+sleep 3
           echo "|||=======   1/3     Configuration de \$HOME/.kube   ================|||"
           echo " mkdir -p \$HOME/.kube"
           echo " sudo cp -i /etc/kubernetes/admin.conf \$HOME/.kube/config"
@@ -47,4 +47,4 @@ echo "L'adresse IP est $IP_ETH1"
             echo "  sudo kubeadm token create --print-join-command   "
 
 
-        sudo kubeadm join 192.168.56.35:6443 --token brzyg4.zxnfa4zsijh9w6dg --discovery-token-ca-cert-hash sha256:06068af216232c1dea35c799ba1e3f2f919510ccee0ebd685b84fe6bca31a419
+    

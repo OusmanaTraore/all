@@ -18,8 +18,8 @@ kubectl get nodes
 sleep 2
 }
 
-pre_upgrade(){
-sudo  kubeadm upgrade apply v$version_short
+pre_grade(){
+sudo  kubeadm $etat apply v$version_short
 kubectl get node
 sleep 2
 sudo apt-mark unhold kubelet kubectl
@@ -46,7 +46,7 @@ kubectl drain $worker_name --ignore-daemonsets
 }
 
 upgrade_worker2F(){
-sudo kubeadm upgrade node
+sudo kubeadm $etat node
 sudo apt-mark unhold kubelet kubectl
 sudo apt-get install -y kubelet=$version_full  kubectl=$version_full
 sudo apt-mark hold kubelet kubectl 
@@ -97,7 +97,7 @@ read -p "|> " choix;
                         # find above the latest  version to upgrade 
                         # it should look like $version_kube-00, where x is the latest patch
                         "
-                        read -p " Entrez la version voulue pour l'upgrade: " version_full
+                        read -p " Entrez la version voulue pour l'upgrade/downgrade: " version_full
 
                         echo -e "
                         |> Appel de la fonction  kubeadm_version_full: 
@@ -119,15 +119,17 @@ read -p "|> " choix;
                         echo -e "
                         |> UPGRADE PLAN
                         "
-                        sudo  kubeadm upgrade plan
+                        read -p " upgrade or downgrade ?: " etat
+                        sudo  kubeadm $etat plan
                         version_short=$(echo $version_full  | cut -d "-" -f 1)
                         echo -e "
                         |> UPGRADE APPLY version:v$version_short
                         "
                           echo -e "
-                        |> Appel de la fonction  pre_upgrade: 
+                        |> Appel de la fonction  pre_grade: 
                         "
-                        pre_upgrade
+                        pre_grade
+                      
                         echo -e "
                         |> GO ON WORKER AND TAP 'done', to continue ...
                         "
@@ -173,7 +175,7 @@ read -p "|> " choix;
                         # find above the latest  version to upgrade 
                         # it should look like $version_kube-00, where x is the latest patch
                         "
-                        read -p " Entrez la version voulue pour l'upgrade: " version_full
+                        read -p " Entrez la version voulue pour l'upgrade/downgrade: " version_full
 
 
                     
@@ -193,10 +195,12 @@ read -p "|> " choix;
                         ### FIN ON-WORKER
                         ### SECOND PART
                         ### ON-WORKER ###
+                        read -p " upgrade or downgrade ?: " etat
                            echo -e "
                         |> Appel de la fonction  upgrade_worker2F: 
                         "
                         upgrade_worker2F
+                        
                         echo -e "
                         |> UPGRADE SUCCESSFULL, CHECK ON MASTER!
                         "
