@@ -30,5 +30,6 @@ argocd login $ARGOCD_SERVER --username admin --password $ARGO_PWD --insecure
 
     ===> faire le commit
 
-    argocd app sync ${MY_APP}
+    argocd app sync ${MY_APP} 
+# fin
   
